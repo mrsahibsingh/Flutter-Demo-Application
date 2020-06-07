@@ -7,12 +7,15 @@ I'll be updating this application throughout my flutter learning process.
 
 This project is a starting point for a Flutter application.
 
-Commit Description:
-    - Initial Commit: Created a Dynamic ListView to populate all the features of the application. In this commit you will find detailed use of:
-        Flutter Classes: Scaffold, MaterialApp, AppBar, AudioCache, CircleAvatar, FlatButton, SizedBox, Navigator.
-        Custom Classes: Constant.
-        Widgets: Rows and Columns, Cards, ListView, Container, FlatButton.
-    - Commit 08-06-20 2:29AM: Replacing file based fonts with Google Font library, Replaced ButtonBar and FlatButton with Card ListTile and items height adjusted through itemExtent in dynamic ListView. 
+## Commit Description:
+- Initial Commit: Created a Dynamic ListView to populate all the features of the application. In this commit you will find detailed use of:
+    - Flutter Classes: Scaffold, MaterialApp, AppBar, AudioCache, CircleAvatar, FlatButton, SizedBox, Navigator.
+    - Custom Classes: Constants.
+    - Widgets: Rows and Columns, Cards, ListView, Container, FlatButton.
+
+- Commit 08-06-20 2:29AM: 
+    - Replacing file based fonts with Google Font library, 
+    - Replaced ButtonBar and FlatButton with Card ListTile and items height adjusted through itemExtent in dynamic ListView. 
         
          
 A few resources to get you started if this is your first Flutter project:
