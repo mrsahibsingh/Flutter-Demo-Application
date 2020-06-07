@@ -11,7 +11,6 @@ class MainPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: "SampleApp",
       home: Scaffold(
         backgroundColor: Constants.scaffoldBgColor,
         appBar: ReusableWidgets.getAppBar(),

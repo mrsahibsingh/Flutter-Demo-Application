@@ -1,9 +1,46 @@
 import 'dart:math';
-
 import 'package:audioplayers/audio_cache.dart';
 import 'package:flutter/material.dart';
-
+import 'package:google_fonts/google_fonts.dart';
 import 'constants.dart';
+
+/// Dynamic list view example
+class DynamicListView extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    Constants.addListViewItems();
+    return Container(
+      child: ListView.builder(
+        itemCount: Constants.itemCount,
+        itemExtent: 60.0, //height of each item.
+        itemBuilder: buildDynamicListViewBody,
+      ),
+    );
+  }
+}
+
+/// Method to build Dynamic List View Body
+/// Used in DynamicListView class
+Widget buildDynamicListViewBody(BuildContext ctxt, int index) {
+  return new Card(
+    child: ListTile(
+      onTap: () {
+        Navigator.push(
+          ctxt,
+          MaterialPageRoute(
+            builder: (context) {
+              return SecondPage(Constants.listItems[index].link);
+            },
+          ),
+        );
+      },
+      title: Text(
+        "${(index + 1).toString()}) ${Constants.listItems[index].name}",
+        style: Theme.of(ctxt).textTheme.headline6,
+      ),
+    ),
+  );
+}
 
 class ReusableWidgets {
   static getAppBar() {
@@ -129,16 +166,15 @@ class ContactCard extends StatelessWidget {
         ),
         Text(
           "Sahib Singh",
-          style: TextStyle(
-              fontSize: 40.0,
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
-              fontFamily: "Pacifico"),
+          style: GoogleFonts.pacifico(
+            fontSize: 40.0,
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+          ),
         ),
         Text(
           "FLUTTER DEVELOPER",
-          style: TextStyle(
-            fontFamily: "SourceSanPro",
+          style: GoogleFonts.sourceSansPro(
             color: Colors.teal.shade100,
             fontSize: 25,
             fontWeight: FontWeight.bold,
@@ -162,8 +198,7 @@ class ContactCard extends StatelessWidget {
             ),
             title: Text(
               "+91 987 654 321",
-              style: TextStyle(
-                fontFamily: "SourceSanPro",
+              style: GoogleFonts.sourceSansPro(
                 fontSize: 20.0,
                 color: Colors.blue,
               ),
@@ -179,8 +214,7 @@ class ContactCard extends StatelessWidget {
             ),
             title: Text(
               "example@mail.com",
-              style: TextStyle(
-                fontFamily: "SourceSanPro",
+              style: GoogleFonts.sourceSansPro(
                 fontSize: 20.0,
                 color: Colors.blue,
               ),
@@ -190,51 +224,6 @@ class ContactCard extends StatelessWidget {
       ],
     );
   }
-}
-
-/// Dynamic list view example
-class DynamicListView extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    Constants obj = new Constants.addListViewItems();
-    return Container(
-      child: ListView.builder(
-          itemCount: Constants.itemCount,
-          itemBuilder: (context, index) =>
-              buildDynamicListViewBody(context, index)),
-    );
-  }
-}
-
-/// Method to build Dynamic List View Body
-/// Used in DynamicListView class
-Widget buildDynamicListViewBody(BuildContext ctxt, int index) {
-  return new Card(
-    child: new ButtonBar(
-      alignment: MainAxisAlignment.start,
-      children: <Widget>[
-        FlatButton(
-          onPressed: () {
-            Navigator.push(
-              ctxt,
-              MaterialPageRoute(
-                builder: (context) {
-                  return SecondPage(Constants.listItems[index].link);
-                },
-              ),
-            );
-          },
-          child: Text(
-            "${(index + 1).toString()}) ${Constants.listItems[index].name}",
-            style: TextStyle(
-              wordSpacing: 2.5,
-              fontSize: 15,
-            ),
-          ),
-        ),
-      ],
-    ),
-  );
 }
 
 /// Simply returning a second page
